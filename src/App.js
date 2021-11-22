@@ -4,11 +4,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
 import WorkFlow from "./components/commonComponents/workFlow";
-
-import "./App.scss";
+//import "./App.scss";
 import Login from "./components/pageComponents/login";
+//import Counter from "./components/Counter";
+
 
 const App = function () {
   const elements = [
@@ -40,9 +40,10 @@ const App = function () {
       <Router>
         <Routes>
           <Route path='/' element={<Login/>} />
+          {/*<Route path='/app' element = {}/>*/}
         </Routes>
       </Router>
-      <h1>Hello</h1>
+      {/*<Counter/>*/}
       <WorkFlow elements={elements} />
     </div>
   );
