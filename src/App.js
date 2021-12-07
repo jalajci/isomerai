@@ -4,13 +4,14 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import WorkFlow from "./components/commonComponents/workFlow";
-//import "./App.scss";
+import Dashboard from "./components/pageComponents/dashboard";
+//import WorkFlow from "./components/commonComponents/workFlow";
 import Login from "./components/pageComponents/login";
-//import Counter from "./components/Counter";
+import New from "./components/New";
 
 
 const App = function () {
+
   const elements = [
     {
       id: '1',
@@ -39,14 +40,13 @@ const App = function () {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Login/>} />
+          <Route path='/login' element={<Login/>} />
           {/*<Route path='/app' element = {}/>*/}
         </Routes>
       </Router>
-      {/*<Counter/>*/}
-      <WorkFlow elements={elements} />
-    </div>
+      <Dashboard/>
+      <New />
+      </div>
   );
-};
-
+}
 export default App;

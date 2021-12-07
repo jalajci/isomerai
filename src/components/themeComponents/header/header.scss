@@ -1,0 +1,13 @@
+.header{
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(219, 223, 231);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    .avatar__container {
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 10px 0 0;
+    }
+}

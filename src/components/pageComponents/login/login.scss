@@ -1,0 +1,24 @@
+.paperStyle {
+  padding: 20px;
+  height: 60vh;
+  width: 35vw;
+  margin: 150px auto;
+  border-radius: 10px;
+}
+.lowerGridStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  .btnStyle {
+    padding: 2vh 3vw;
+    width: 10vw;
+  }
+  .linkStyle {
+    color: "black";
+  }
+}
+.upperGridStyle {
+  height: 100px;
+  margin: 0px;
+}

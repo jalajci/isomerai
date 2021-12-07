@@ -1,50 +1,50 @@
 import React from "react";
-import { Button, Grid, Paper, TextField, Link } from "@material-ui/core";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Grid, Paper, Link } from "@material-ui/core";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
-
+import "./login.scss";
+import MyButton from "../../themeComponents/button";
+import InputBox from "../../themeComponents/formTypes";
 
 const Login = (props) => {
-  const paperStyle = {
-    padding: 20,
-    height: "60vh",
-    width: "35vw",
-    margin: "150px auto",
-    borderRadius: "10px",
-  };
-  const btnStyle = {
-    padding: "2vh 3vw",
-    width: "10vw",
-  };
-  const inputStyle = {
-    marginTop: "2vh",
-  };
-  const lowerGridStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    marginTop: "2vh",
-  };
-  const upperGridStyle = {
-    height: 100,
-    margin: 0,
-  };
   const initialValues = {
     email: "",
     password: "",
   };
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("please enter valid email").required("Required"),
-    password: Yup.string().min(6).required("Required"),
+    email: Yup.string().required("Required"),
+    password: Yup.string().min(6).required("Password must be atleast of 6 characters"),
   });
   const onSubmit = (values, props) => {
     console.log(values);
     props.resetForm();
-    //console.log(props);
   };
+  const emailProps = {
+      name:"email",
+      type:"text",
+      className:"inputStyle",
+      label:"Email",
+      error: "email"
+  }
+  const passwordProps = {
+      name: "password",
+      type: "password",
+      className:"inputStyle",
+      label:"Password",
+      error: "password"
+  }
+  const buttonProps = {
+      type: "submit",
+      className: "btnStyle",
+      color: "primary"
+  }
+  const textAreaProps = {
+    label: "empty textarea"
+  }
   return (
     <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <Grid style={upperGridStyle}>Space for LOGO</Grid>
+      <Paper elevation={10} className="paperStyle">
+        <Grid className="upperGridStyle">Space for LOGO</Grid>
         <h2>Login</h2>
         <p>Use your credentials to login below.</p>
         <Formik
@@ -54,44 +54,13 @@ const Login = (props) => {
         >
           {(props) => (
             <Form>
-              <Field
-                as={TextField}
-                name="email"
-                id="outlined-basic"
-                label="Email"
-                placeholder="Enter email"
-                variant="outlined"
-                type="email"
-                fullWidth
-                required
-                helperText={<ErrorMessage name="email" />}
-                style={inputStyle}
-              />
-              <Field
-                as={TextField}
-                name="password"
-                id="outlined-basic"
-                label="Password"
-                placeholder="enter password"
-                type="password"
-                variant="outlined"
-                fullWidth
-                required
-                helperText={<ErrorMessage name="password" />}
-                style={inputStyle}
-              />
-              <Grid style={lowerGridStyle}>
-                <Link href="#" underline="none" style={{ color: "black" }}>
+              <InputBox emailProps={emailProps}/>
+              <InputBox passwordProps={passwordProps}/>
+              <Grid className="lowerGridStyle">
+                <Link href="#" underline="none" className="linkStyle">
                   Forgot Password?
                 </Link>
-                <Button
-                  type="submit"
-                  color="primary"
-                  variant="contained"
-                  style={btnStyle}
-                >
-                  Login
-                </Button>
+                <MyButton attributes={buttonProps} />
               </Grid>
             </Form>
           )}
